@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tweet index{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_tweet_new') }}">Create new</a>
+
+    {% for tweet in tweets %}
+    <div class="card" style="width: 30rem; height: auto; margin: 10px">
+        <div class="card-header">
+            <div>#{{ tweet.id }}</div>
+            <div>Date de creation : {{ tweet.date ? tweet.date|date('Y-m-d')}}</div>
+        </div>
+        <div class="card-body">
+            <div>
+                <p class="card-text">{{ tweet.content }}</p>
+            </div>
+            {{ include('tweet/_delete_form.html.twig') }}
+            <a href="{{ path('app_tweet_show', {'id': tweet.id}) }}" class="btn btn-secondary">show</a>
+            <a href="{{ path('app_tweet_edit', {'id': tweet.id}) }}" class="btn btn-primary">edit</a>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    </table>
+{% endblock %}
