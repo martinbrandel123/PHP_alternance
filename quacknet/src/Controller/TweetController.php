@@ -72,6 +72,8 @@ class TweetController extends AbstractController
         if ($this->isCsrfTokenValid('delete'.$tweet->getId(), $request->request->get('_token'))) {
             $tweetRepository->remove($tweet, true);
         }
+        if($tweetForm->isSubmitted() && $tweetForm->isValid())
+        $tweetRepository->remove($tweet, true);
 
         return $this->redirectToRoute('app_tweet_index', [], Response::HTTP_SEE_OTHER);
     }

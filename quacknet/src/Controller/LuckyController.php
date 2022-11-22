@@ -9,13 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class LuckyController extends AbstractController
 {
     /**
-     * @Route("/lucky/number", name="number")
+     * @Route("/test", name="test")
      */
     public function index()
     {
-        return $this->render('index.html.twig', [
-            'controller_name' => 'LuckyController',
-        ]);
+
     }
 
 /*    public function number(): Response
